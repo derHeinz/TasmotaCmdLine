@@ -29,6 +29,10 @@ class TasmotaPowerPlug(object):
         res = self._send_cmd("Status 8")
         return res['StatusSNS']['ENERGY']['Power']
         
+    def get_current(self):
+        res = self._send_cmd("Status 8")
+        return res['StatusSNS']['ENERGY']['Current']
+        
     def get_state(self):
         res = self._send_cmd("Power")
         state = res['POWER']
